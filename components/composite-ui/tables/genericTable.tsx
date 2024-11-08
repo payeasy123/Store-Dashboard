@@ -88,7 +88,7 @@ export const GenericTableWrapper = <T,>(props: GenericTableWrapperProps<T>) => {
                                         e.stopPropagation();
                                         handleSelectItem(item, e.target.checked);
                                     }}
-                                    className="h-[18px] w-[18px] cursor-pointer appearance-none rounded-sm border-[2px] border-[#49454F] transition-all duration-300 ease-in-out checked:border-transparent checked:bg-secondary focus:outline-none"
+                                    className="checked:bg-secondary h-[18px] w-[18px] cursor-pointer appearance-none rounded-sm border-[2px] border-[#49454F] transition-all duration-300 ease-in-out checked:border-transparent focus:outline-none"
                                 />
                             </label>
                         </Table.Cell>
@@ -124,7 +124,7 @@ export const GenericTableWrapper = <T,>(props: GenericTableWrapperProps<T>) => {
                             type="checkbox"
                             onChange={handleSelectAll}
                             checked={selectedItems?.length === currentItems.length && currentItems.length > 0}
-                            className="h-[18px] w-[18px] cursor-pointer appearance-none rounded-sm border-[2px] border-[#49454F] transition-all duration-300 ease-in-out checked:border-transparent checked:bg-secondary focus:outline-none"
+                            className="checked:bg-secondary h-[18px] w-[18px] cursor-pointer appearance-none rounded-sm border-[2px] border-[#49454F] transition-all duration-300 ease-in-out checked:border-transparent focus:outline-none"
                         />
                     </Table.HeaderCell>
                 )}

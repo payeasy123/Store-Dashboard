@@ -43,7 +43,7 @@ export const CreateProjectSideDrawer = (props: SideDrawerProps) => {
     return (
         <SideDrawer drawerTrigger={drawerTrigger} handleClose={closeDrawer}>
             <div className="mx-auto w-[85%] animate-fade-in py-10">
-                <h2 className="text-2xl font-semibold text-secondary">Create Project</h2>
+                <h2 className="text-secondary text-2xl font-semibold">Create Project</h2>
 
                 <p className="my-2 text-base font-medium text-[#646464]">Input the correct details in the fields below;</p>
 

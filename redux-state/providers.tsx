@@ -8,16 +8,16 @@ import { PersistGate } from "redux-persist/integration/react";
 import { persistor, store } from "./store";
 
 export const Providers = (props: React.PropsWithChildren) => {
-  const queryClient = new QueryClient();
+    const queryClient = new QueryClient();
 
-  return (
-    <QueryClientProvider client={queryClient}>
-      <PersistGate persistor={persistor} loading={<PageLoader />}>
-        <Provider store={store}>
-          <Toaster />
-          {props.children}
-        </Provider>
-      </PersistGate>
-    </QueryClientProvider>
-  );
+    return (
+        <QueryClientProvider client={queryClient}>
+            <PersistGate persistor={persistor} loading={<PageLoader />}>
+                <Provider store={store}>
+                    <Toaster />
+                    {props.children}
+                </Provider>
+            </PersistGate>
+        </QueryClientProvider>
+    );
 };

@@ -81,7 +81,7 @@ const TableContext = createContext<any>(null);
 const DefaultEmptyState = ({ tableLength }: { tableLength: number }) => (
     <tr>
         <td colSpan={tableLength + 1} className="h-[400px] w-full text-center">
-            <div className="flex w-full items-center justify-center text-secondary">No data available</div>
+            <div className="text-secondary flex w-full items-center justify-center">No data available</div>
         </td>
     </tr>
 );
@@ -127,7 +127,7 @@ const Body = ({ children, className }: { children: ReactNode; className?: string
 Body.displayName = "Table.Body";
 
 const HeaderCell = ({ children, className }: { children: ReactNode; className?: string }) => (
-    <th className={`p-[22px] pl-10 text-start text-sm font-medium text-secondary ${className}`}>{children}</th>
+    <th className={`text-secondary p-[22px] pl-10 text-start text-sm font-medium ${className}`}>{children}</th>
 );
 
 HeaderCell.displayName = "Table.HeaderCell";

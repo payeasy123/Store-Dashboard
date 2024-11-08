@@ -59,7 +59,7 @@ export const FileInput = <T extends FieldValues>(props: IFileInput<T>) => {
 
             {!readableStream && !customImage && (
                 <label className="flex h-full w-full cursor-pointer flex-col items-center justify-center">
-                    <div className=" flex w-full items-center  justify-center rounded-[4px] border border-solid border-transparent bg-white py-3 duration-200 ease-in focus-within:border-primary">
+                    <div className=" focus-within:border-primary flex w-full  items-center justify-center rounded-[4px] border border-solid border-transparent bg-white py-3 duration-200 ease-in">
                         <div className="flex items-center"></div>
 
                         <Image src={`${ICONS_DIR}/cloud.svg`} alt="Upload" width={20} height={20} />

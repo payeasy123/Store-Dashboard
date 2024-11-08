@@ -15,8 +15,6 @@ const ROUTES = {
 
 const ACCESS_TOKEN_KEY = "accessToken";
 
-const CACHE_KEYS = {
-
-};
+const CACHE_KEYS = {};
 
 export { ACCESS_TOKEN_KEY, CACHE_KEYS, ICONS_DIR, IMAGE_DIR, ROUTES };
