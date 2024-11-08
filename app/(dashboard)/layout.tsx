@@ -9,7 +9,7 @@ import React from "react";
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
     const accessToken = localStorage.getItem(ACCESS_TOKEN_KEY);
 
-    if (!accessToken) redirect(ROUTES.auth.LOGIN);
+    // if (!accessToken) redirect(ROUTES.auth.LOGIN);
 
     useScreenSize();
 
