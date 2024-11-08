@@ -1,6 +1,5 @@
 import { AxiosError } from "axios";
 
-
 export interface IBaseApiResponse<T> {
     message: string;
     data: T;

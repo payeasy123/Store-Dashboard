@@ -28,7 +28,7 @@ export const TextArea = <T extends FieldValues>(props: TInputProps<T>) => {
 
             <textarea
                 id={name}
-                className={`input-field placeholder:text-placeholder flex-1 rounded-lg border border-solid bg-white px-5 py-3 text-sm font-normal text-text-color-main outline-none placeholder:text-sm focus-within:border-primary md:text-base md:placeholder:text-base ${
+                className={`input-field placeholder:text-placeholder text-text-color-main focus-within:border-primary flex-1 rounded-lg border border-solid bg-white px-5 py-3 text-sm font-normal outline-none placeholder:text-sm md:text-base md:placeholder:text-base ${
                     others.disabled ? "disabled" : ""
                 }  ${error ? "border-error" : "border-default"} ${textAreaClassname}`}
                 {...(register ? register(name) : {})}

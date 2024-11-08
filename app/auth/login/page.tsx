@@ -19,10 +19,8 @@ const Login = () => {
         <div className="md:p-16">
             <form onSubmit={handleSubmit(onSubmit)} className="container px-4 py-8">
                 <div className="mb-8 md:mb-10">
-                   Logo
-
+                    Logo
                     <AuthHeader message="Welcome Back" />
-
                     <SubHeader message="Fill in the correct form below:" />
                 </div>
 

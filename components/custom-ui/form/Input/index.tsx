@@ -31,11 +31,11 @@ export const Input = <T extends FieldValues>(props: TInputProps<T>) => {
             <div
                 className={`input-container flex flex-row items-center gap-x-2 overflow-hidden rounded-lg border border-solid ${
                     error ? "border-error" : "border-default"
-                } bg-white duration-200 ease-in focus-within:border-primary ${inputContainerClassname}`}
+                } focus-within:border-primary bg-white duration-200 ease-in ${inputContainerClassname}`}
             >
                 <input
                     id={name}
-                    className={`input-field  placeholder:text-placeholder flex-1 px-5 py-3 text-sm font-normal text-text-color-main outline-none placeholder:text-sm md:text-base md:placeholder:text-base ${
+                    className={`input-field  placeholder:text-placeholder text-text-color-main flex-1 px-5 py-3 text-sm font-normal outline-none placeholder:text-sm md:text-base md:placeholder:text-base ${
                         others.disabled ? "disabled" : ""
                     } ${inputClassname}`}
                     {...(register ? register(name) : {})}

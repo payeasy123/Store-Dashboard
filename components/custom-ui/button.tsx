@@ -7,7 +7,7 @@ type OptionalProps = {
 };
 
 type IButtonProps = {
-    label: string | React.ReactNode ;
+    label: string | React.ReactNode;
     variant: "outlined" | "contained" | "text";
 } & Partial<OptionalProps> &
     React.ButtonHTMLAttributes<HTMLButtonElement>;

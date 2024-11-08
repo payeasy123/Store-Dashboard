@@ -14,7 +14,7 @@ export const Sidebar = () => {
             }`}
             aria-label="Sidebar"
         >
-            <div className="relative flex min-h-0 flex-1 flex-col bg-secondary">
+            <div className="bg-secondary relative flex min-h-0 flex-1 flex-col">
                 <div className={`h-full overflow-y-scroll pt-[120px]  text-white ${sidebarOpened ? "block" : "hidden"}`}>
                     <div>
                         <div className="mx-auto flex items-center gap-4 pl-8">
