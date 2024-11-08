@@ -5,6 +5,7 @@ import { AuthHeader, SubHeader } from "@/components/custom-ui/auth";
 import { Input } from "@/components/custom-ui/form";
 import Link from "next/link";
 import { useLogin } from "./useLogin";
+import { ArrowRightIcon } from "@/public/icons";
 
 const Login = () => {
     const { loginForm, onSubmit, logging_in, passwordIcon, passwordVisible } = useLogin();
@@ -54,7 +55,7 @@ const Login = () => {
                     </Link>
                 </div>
 
-                <Button variant="contained" label="Log in" className="w-full" type="submit" loading={logging_in} />
+                <Button variant="contained" label="Log in" className="w-full" type="submit" loading={logging_in} rightIcon={<ArrowRightIcon />} />
 
                 <div className="mt-3">
                     <span className="mt-3 inline-block w-full text-center text-sm font-medium text-[#A1A1A1] md:text-base">
