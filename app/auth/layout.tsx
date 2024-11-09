@@ -1,7 +1,7 @@
 "use client";
 
 import { AuthSidebar } from "@/components/custom-ui/auth";
-import { ACCESS_TOKEN_KEY, ICONS_DIR, ROUTES } from "@/utils/constants";
+import { ACCESS_TOKEN_KEY, IMAGE_DIR, ROUTES } from "@/utils/constants";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 
@@ -15,19 +15,13 @@ const AuthLayout = ({ children }: IAuthLayoutProps) => {
     if (accessToken) redirect(ROUTES.dashboard.HOME);
 
     return (
-        <section className="block h-screen w-full flex-col overflow-y-auto bg-[#f6f7fd] md:flex-row md:overflow-hidden lg:flex">
-            <div className="block lg:hidden">
-                <div className="relative h-[200px] w-full">
-                    <Image src={`${ICONS_DIR}/auth-header.svg`} alt="Auth Header Image" fill className="object-cover" />
-                </div>
-            </div>
-
-            <div className="hidden flex-1 lg:block">
+        <main className="flex h-screen w-full overflow-y-auto bg-white md:overflow-hidden">
+            <section className="hidden flex-1 bg-primary-gradient lg:block">
                 <AuthSidebar />
-            </div>
+            </section>
 
-            <div className="md:h-full md:flex-1 md:overflow-y-auto md:p-16">{children}</div>
-        </section>
+            <section className="flex h-full flex-1 flex-col items-center justify-center md:overflow-y-auto md:px-[103px]">{children}</section>
+        </main>
     );
 };
 

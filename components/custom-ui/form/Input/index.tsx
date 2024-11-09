@@ -19,7 +19,7 @@ export const Input = <T extends FieldValues>(props: TInputProps<T>) => {
     return (
         <label htmlFor={name} className="atmua-input flex w-full flex-col">
             <span
-                className={`mb-2 !flex items-center gap-[1px] text-sm   font-medium md:mb-3 md:text-base ${
+                className={`!flex h-[14px] w-[514px] items-center gap-[1px] px-[8px] text-sm font-medium md:mb-3 md:text-base ${
                     others.disabled ? "disabled" : ""
                 } ${others.readOnly ? "text-gray-500" : "text-[#272727]"} ${labelClassname} `}
             >
@@ -38,7 +38,7 @@ export const Input = <T extends FieldValues>(props: TInputProps<T>) => {
                     className={`input-field  placeholder:text-placeholder text-text-color-main flex-1 px-5 py-3 text-sm font-normal outline-none placeholder:text-sm md:text-base md:placeholder:text-base ${
                         others.disabled ? "disabled" : ""
                     } ${inputClassname}`}
-                    {...(register ? register(name) : {})}
+                    // {...(register ? register(name) : {})}
                     {...others}
                 />
                 {prefixIcon && <div className="prefix-icon">{prefixIcon}</div>}
