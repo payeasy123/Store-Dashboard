@@ -26,7 +26,7 @@ const AuthLayout = ({ children }: IAuthLayoutProps) => {
                 <AuthSidebar />
             </div>
 
-            <div className="md:h-full md:flex-1 md:overflow-y-auto">{children}</div>
+            <div className="md:h-full md:flex-1 md:overflow-y-auto md:p-16">{children}</div>
         </section>
     );
 };
