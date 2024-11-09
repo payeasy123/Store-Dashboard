@@ -58,5 +58,5 @@ const buttonConfig = {
     outlined: "bg-transparent text-secondary hover:bg-secondary hover:text-white disabled:opacity-[40%]",
     text: "border-none bg-transparent text-secondary disabled:text-opacity-50",
     contained:
-        "bg-primary-500 text-neutral-50 hover:text-neutral-50 hover:bg-primary-300 disabled:bg-opacity-20 disabled:text-opacity-50 disabled:border-none",
+        "bg-primary-gradient text-neutral-50 hover:text-neutral-50 hover:bg-primary-300 disabled:bg-opacity-20 disabled:text-opacity-50 disabled:border-none",
 };

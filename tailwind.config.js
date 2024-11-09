@@ -8,6 +8,9 @@ module.exports = {
     },
     theme: {
         extend: {
+            backgroundImage: {
+                "primary-gradient": "linear-gradient(-31deg, #AB49FF 0%, #0077B6 100%)",
+            },
             fontSize: {
                 // Custom font sizes in rem
                 "heading-1": ["3rem", { lineHeight: "3.6rem", fontWeight: 700 }], // 48px -> 3rem, 57.6px -> 3.6rem
