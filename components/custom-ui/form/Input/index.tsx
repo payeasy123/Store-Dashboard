@@ -7,19 +7,18 @@ type TInputProps<T extends FieldValues> = {
     label: string;
     error?: string;
     prefixIcon?: React.ReactNode;
-    register?: UseFormRegister<T>;
     labelClassname?: string;
     inputClassname?: string;
     inputContainerClassname?: string;
 } & InputHTMLAttributes<HTMLInputElement>;
 
 export const Input = <T extends FieldValues>(props: TInputProps<T>) => {
-    const { name, label, error, prefixIcon, register, labelClassname, inputClassname, inputContainerClassname, className, ...others } = props;
+    const { name, label, error, prefixIcon, labelClassname, inputClassname, inputContainerClassname, className, ...others } = props;
 
     return (
         <label htmlFor={name} className="atmua-input flex w-full flex-col">
             <span
-                className={`!flex h-[14px] w-[514px] items-center px-[8px] text-[10px] md:text-[12px] leading-[12px] md:leading-[14.4px] font-medium mb-[8px] md:text-base ${
+                className={`mb-[8px] !flex h-[14px] w-[514px] items-center px-[8px] text-[10px] font-medium leading-[12px] md:text-[12px] md:text-base md:leading-[14.4px] ${
                     others.disabled ? "disabled" : ""
                 } ${others.readOnly ? "text-gray-500" : "text-[#7B7B7B]"} ${labelClassname} `}
             >
@@ -35,10 +34,9 @@ export const Input = <T extends FieldValues>(props: TInputProps<T>) => {
             >
                 <input
                     id={name}
-                    className={`input-field rounded-[9px] placeholder:text-[#D6D6D6] placeholder:text-[14px] placeholder:leading-[16.8px] placeholder:font-medium text-text-color-main flex-1 px-5 py-3 text-sm font-normal outline-none placeholder:text-sm md:text-base md:placeholder:text-base ${
+                    className={`input-field text-text-color-main flex-1 rounded-[9px] px-5 py-3 text-sm font-normal outline-none placeholder:text-[14px] placeholder:text-sm placeholder:font-medium placeholder:leading-[16.8px] placeholder:text-[#D6D6D6] md:text-base md:placeholder:text-base ${
                         others.disabled ? "disabled" : ""
                     } ${inputClassname}`}
-                    // {...(register ? register(name) : {})}
                     {...others}
                 />
                 {prefixIcon && <div className="prefix-icon">{prefixIcon}</div>}

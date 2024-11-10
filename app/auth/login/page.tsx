@@ -25,52 +25,49 @@ const Login = () => {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="">
-            <div className="flex h-full max-w-[514px] w-full flex-col gap-12 md:gap-[260px]">
-                <div className="flex w-full flex-col gap-6 md:gap-[80px]">
-                    <h1 className="text-left text-[24px] md:text-[32px] text-[#131313] font-semibold leading-[38.4px]">Log In</h1>
+            <div className="flex h-full w-full max-w-[514px] flex-col gap-12 md:gap-[260px]">
+                <div>
+                    <h1 className="mb-[80px] text-left text-[24px] font-semibold leading-[38.4px] text-[#131313] md:text-[32px]">Log in</h1>
                     <div className="flex h-[198px] flex-col gap-[40px]">
-                        <div className="flex flex-col">
+                        <div>
                             <Input
                                 label="Email"
-                                name="emailAddress"
                                 type="email"
-                                // register={register("emailAddress")}
+                                {...register("emailAddress")}
                                 error={errors.emailAddress ? errors.emailAddress.message : undefined}
                                 placeholder="fisaderek@gmail.com"
-                                className="w-[100%] h-[48px] border border-[#D6D6D6] p-[12px_8px] text-gray-700 shadow-[0px_2px_0px_rgba(0,0,0,0.1)]"
+                                className="h-[48px] w-[100%] border border-[#D6D6D6] p-[12px_8px] text-gray-700 shadow-[0px_2px_0px_rgba(0,0,0,0.1)]"
                                 style={{
-                                    paddingLeft: "8px"
+                                    paddingLeft: "8px",
                                 }}
                             />
                         </div>
 
-                        <div className="flex flex-col gap-[4px]">
+                        <div>
                             <Input
                                 label="Password"
-                                name="password"
-                                // register={undefined}
+                                {...register("password")}
                                 prefixIcon={passwordIcon}
                                 type={passwordVisible ? "password" : "text"}
                                 error={errors.password ? errors.password.message : undefined}
                                 placeholder="Minimun of 8 characters"
                                 className="h-[48px] border border-[#D6D6D6] p-[12px_8px] text-gray-700 shadow-[0px_2px_0px_rgba(0,0,0,0.1)]"
                                 style={{
-                                    paddingLeft: "8px"
+                                    paddingLeft: "8px",
                                 }}
                             />
-
-                            <Link className="text-secondary mt-[4px] text-base font-medium" href={"/"}>
-                                <span className="cursor-pointer pl-[8px] text-[12px] font-medium text-[#7B2CBF] hover:underline">Forget Password?</span>
-                            </Link>
                         </div>
                     </div>
+                    <Link className="text-secondary mt-[4px] w-max text-base font-medium" href={"/"}>
+                        <span className="cursor-pointer pl-[8px] text-[12px] font-medium text-[#7B2CBF] hover:underline">Forget Password?</span>
+                    </Link>
                 </div>
 
                 <div className="">
                     <Button
                         variant="contained"
                         label="Log in"
-                        className="h-[56px] w-full px-[121px] py-[12px] font-semibold text-[#F7F7F7] text-[18px] leading-[22.41px]"
+                        className="h-[56px] w-full px-[121px] py-[12px] text-[18px] font-semibold leading-[22.41px] text-[#F7F7F7]"
                         type="submit"
                         loading={logging_in}
                         rightIcon={<ArrowRightIcon />}
