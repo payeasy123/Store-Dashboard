@@ -19,9 +19,9 @@ export const Input = <T extends FieldValues>(props: TInputProps<T>) => {
     return (
         <label htmlFor={name} className="atmua-input flex w-full flex-col">
             <span
-                className={`!flex h-[14px] w-[514px] items-center gap-[1px] px-[8px] text-sm font-medium md:mb-3 md:text-base ${
+                className={`!flex h-[14px] w-[514px] items-center px-[8px] text-[10px] md:text-[12px] leading-[12px] md:leading-[14.4px] font-medium mb-[8px] md:text-base ${
                     others.disabled ? "disabled" : ""
-                } ${others.readOnly ? "text-gray-500" : "text-[#272727]"} ${labelClassname} `}
+                } ${others.readOnly ? "text-gray-500" : "text-[#7B7B7B]"} ${labelClassname} `}
             >
                 {label}
 
@@ -30,12 +30,12 @@ export const Input = <T extends FieldValues>(props: TInputProps<T>) => {
 
             <div
                 className={`input-container flex flex-row items-center gap-x-2 overflow-hidden rounded-lg border border-solid ${
-                    error ? "border-error" : "border-default"
+                    error ? "border-error" : "border-[#D6D6D6]"
                 } focus-within:border-primary bg-white duration-200 ease-in ${inputContainerClassname}`}
             >
                 <input
                     id={name}
-                    className={`input-field  placeholder:text-placeholder text-text-color-main flex-1 px-5 py-3 text-sm font-normal outline-none placeholder:text-sm md:text-base md:placeholder:text-base ${
+                    className={`input-field rounded-[9px] placeholder:text-[#D6D6D6] placeholder:text-[14px] placeholder:leading-[16.8px] placeholder:font-medium text-text-color-main flex-1 px-5 py-3 text-sm font-normal outline-none placeholder:text-sm md:text-base md:placeholder:text-base ${
                         others.disabled ? "disabled" : ""
                     } ${inputClassname}`}
                     // {...(register ? register(name) : {})}

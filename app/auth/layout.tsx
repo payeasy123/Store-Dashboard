@@ -16,7 +16,7 @@ const AuthLayout = ({ children }: IAuthLayoutProps) => {
 
     return (
         <main className="flex h-screen w-full overflow-y-auto bg-white md:overflow-hidden">
-            <section className="hidden flex-1 bg-primary-gradient lg:block">
+            <section className="hidden bg-primary-gradient lg:flex lg:w-1/2">
                 <AuthSidebar />
             </section>
 
