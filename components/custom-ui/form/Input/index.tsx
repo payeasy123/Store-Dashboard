@@ -18,7 +18,7 @@ export const Input = <T extends FieldValues>(props: TInputProps<T>) => {
     return (
         <label htmlFor={name} className="atmua-input flex w-full flex-col">
             <span
-                className={`mb-[8px] !flex h-[14px] w-[514px] items-center px-[8px] text-[10px] font-medium leading-[12px] md:text-[12px] md:text-base md:leading-[14.4px] ${
+                className={`mb-[8px] flex h-[14px] md:w-[514px] items-center px-[8px] text-[10px] font-medium leading-[12px] md:text-[12px] md:text-base md:leading-[14.4px] ${
                     others.disabled ? "disabled" : ""
                 } ${others.readOnly ? "text-gray-500" : "text-[#7B7B7B]"} ${labelClassname} `}
             >
