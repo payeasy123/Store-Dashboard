@@ -6,6 +6,12 @@ import { Input } from "@/components/custom-ui/form";
 import Link from "next/link";
 import { useLogin } from "./useLogin";
 import { ArrowRightIcon } from "@/public/icons";
+import { useForm, SubmitHandler, UseFormRegisterReturn } from "react-hook-form";
+
+interface LoginFormInputs {
+    emailAddress: string;
+    password: string;
+}
 
 const Login = () => {
     const { loginForm, onSubmit, logging_in, passwordIcon, passwordVisible } = useLogin();
@@ -14,59 +20,46 @@ const Login = () => {
         handleSubmit,
         formState: { errors },
         register,
-    } = loginForm;
+    } = useForm<LoginFormInputs>();
+    /*loginForm*/
 
     return (
-        <div className="md:p-16">
-            <form onSubmit={handleSubmit(onSubmit)} className="container px-4 py-8">
-                <div className="mb-8 md:mb-10">
-                    Logo
-                    <AuthHeader message="Welcome Back" />
-                    <SubHeader message="Fill in the correct form below:" />
-                </div>
+        <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-[514px]">
+            <div className="flex h-full w-full flex-col gap-[260px] p-4">
+                <div className="">
+                    <h1 className="mb-[80px] text-heading-3 text-gray-900">Log in</h1>
+                    <div className="flex flex-col gap-[40px]">
+                        <div>
+                            <Input
+                                label="Email"
+                                type="email"
+                                {...register("emailAddress")}
+                                error={errors.emailAddress ? errors.emailAddress.message : undefined}
+                                placeholder="fisaderek@gmail.com"
+                            />
+                        </div>
 
-                <div className="mb-8">
-                    <Input
-                        required
-                        name="emailAddress"
-                        type="email"
-                        label="Email Address"
-                        register={register}
-                        error={errors.emailAddress ? errors.emailAddress.message : undefined}
-                    />
-                </div>
-
-                <div className="mb-14">
-                    <Input
-                        required
-                        name="password"
-                        label="Password"
-                        register={register}
-                        prefixIcon={passwordIcon}
-                        type={passwordVisible ? "password" : "text"}
-                        error={errors.password ? errors.password.message : undefined}
-                    />
-
-                    <Link
-                        className="text-secondary mt-2 inline-block text-base font-medium underline underline-offset-4"
-                        href={"/auth/forgot-password"}
-                    >
-                        Forget Password?
+                        <div>
+                            <Input
+                                label="Password"
+                                {...register("password")}
+                                prefixIcon={passwordIcon}
+                                type={passwordVisible ? "password" : "text"}
+                                error={errors.password ? errors.password.message : undefined}
+                                placeholder="Minimun of 8 characters"
+                            />
+                        </div>
+                    </div>
+                    <Link className="text-secondary mt-[4px] w-max text-base font-medium" href={"/"}>
+                        <span className="cursor-pointer pl-[8px] text-[12px] font-medium text-[#7B2CBF] hover:underline">Forget Password?</span>
                     </Link>
                 </div>
 
-                <Button variant="contained" label="Log in" className="w-full" type="submit" loading={logging_in} rightIcon={<ArrowRightIcon />} />
-
-                <div className="mt-3">
-                    <span className="mt-3 inline-block w-full text-center text-sm font-medium text-[#A1A1A1] md:text-base">
-                        Don’t have an account?{" "}
-                        <Link className="text-primary" href={"/auth/signup"}>
-                            Sign Up
-                        </Link>
-                    </span>
+                <div className="">
+                    <Button variant="contained" label="Log in" type="submit" loading={logging_in} rightIcon={<ArrowRightIcon />} />
                 </div>
-            </form>
-        </div>
+            </div>
+        </form>
     );
 };
 

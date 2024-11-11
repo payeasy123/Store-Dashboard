@@ -1,4 +1,4 @@
-import React, { InputHTMLAttributes } from "react";
+import React, { InputHTMLAttributes, useEffect } from "react";
 import { FieldValues, Path, UseFormRegister } from "react-hook-form";
 import "./styles.scss";
 
@@ -7,21 +7,20 @@ type TInputProps<T extends FieldValues> = {
     label: string;
     error?: string;
     prefixIcon?: React.ReactNode;
-    register?: UseFormRegister<T>;
     labelClassname?: string;
     inputClassname?: string;
     inputContainerClassname?: string;
 } & InputHTMLAttributes<HTMLInputElement>;
 
 export const Input = <T extends FieldValues>(props: TInputProps<T>) => {
-    const { name, label, error, prefixIcon, register, labelClassname, inputClassname, inputContainerClassname, className, ...others } = props;
+    const { name, label, error, prefixIcon, labelClassname, inputClassname, inputContainerClassname, className, ...others } = props;
 
     return (
         <label htmlFor={name} className="atmua-input flex w-full flex-col">
             <span
-                className={`mb-2 !flex items-center gap-[1px] text-sm   font-medium md:mb-3 md:text-base ${
+                className={`mb-[8px] flex h-[14px] items-center px-[8px] text-body-3 font-medium ${
                     others.disabled ? "disabled" : ""
-                } ${others.readOnly ? "text-gray-500" : "text-[#272727]"} ${labelClassname} `}
+                } ${others.readOnly ? "text-gray-500" : "text-[#7B7B7B]"} ${labelClassname} `}
             >
                 {label}
 
@@ -29,19 +28,18 @@ export const Input = <T extends FieldValues>(props: TInputProps<T>) => {
             </span>
 
             <div
-                className={`input-container flex flex-row items-center gap-x-2 overflow-hidden rounded-lg border border-solid ${
-                    error ? "border-error" : "border-default"
-                } focus-within:border-primary bg-white duration-200 ease-in ${inputContainerClassname}`}
+                className={`flex flex-row items-center gap-x-2 overflow-hidden rounded-lg border border-solid ${
+                    error ? "border-error bg-[#FFD7D7]" : "border-neutral-500 bg-neutral-100"
+                } focus-within:border-primary duration-200 ease-in ${inputContainerClassname}`}
             >
                 <input
                     id={name}
-                    className={`input-field  placeholder:text-placeholder text-text-color-main flex-1 px-5 py-3 text-sm font-normal outline-none placeholder:text-sm md:text-base md:placeholder:text-base ${
+                    className={`flex-1 rounded-[9px] bg-transparent px-2 py-[11.5px] text-body-2 font-medium text-gray-500 shadow-[0px_2px_0px_rgba(0,0,0,0.1)] outline-none placeholder:text-body-2 placeholder:font-medium placeholder:text-neutral-500 ${
                         others.disabled ? "disabled" : ""
                     } ${inputClassname}`}
-                    {...(register ? register(name) : {})}
                     {...others}
                 />
-                {prefixIcon && <div className="prefix-icon">{prefixIcon}</div>}
+                {prefixIcon && <div>{prefixIcon}</div>}
             </div>
 
             {error && !others.disabled && <span className={` mt-1 text-xs text-[#EF233C]`}>{error}</span>}
