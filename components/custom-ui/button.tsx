@@ -36,7 +36,7 @@ export const Button: React.FC<IButtonProps> = (props) => {
             onClick={onClick}
             disabled={disabled || loading}
             style={style}
-            className={`border-secondary group relative inline-block cursor-pointer rounded-full border px-6 py-3 text-center align-middle text-heading-5 font-semibold outline-none transition-all duration-300 ease-in-out md:py-3 md:text-base
+            className={`border-secondary group relative inline-block w-full cursor-pointer rounded-full border px-6 py-3 text-center align-middle text-heading-5 font-semibold outline-none transition-all duration-300 ease-in-out
       ${buttonConfig[variant]} disabled:pointer-events-none ${loading ? "!bg-secondary-light !text-secondary" : ""} ${className}`}
             {...others}
         >

@@ -74,7 +74,7 @@ export const useLogin = () => {
     const passwordIcon = useMemo(() => {
         return (
             <div className="my-auto pe-4" onClick={() => setSecure(!secure)}>
-                {secure ? <FiEye className="text-secondary cursor-pointer" /> : <FiEyeOff className="text-secondary cursor-pointer" />}
+                {!secure ? <FiEye className="text-secondary cursor-pointer" /> : <FiEyeOff className="text-secondary cursor-pointer" />}
             </div>
         );
     }, [secure, setSecure]);
