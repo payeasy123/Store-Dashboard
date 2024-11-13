@@ -4,6 +4,9 @@ import { usePathname, useRouter } from "next/navigation";
 import { DashboardIcon } from "public/icons";
 import React, { useState } from "react";
 import { SlArrowRight } from "react-icons/sl";
+import { IMAGE_DIR } from "@/utils";
+import Image from "next/image";
+
 
 interface ISidebarItem {
     name: string;
@@ -30,9 +33,47 @@ const SidebarItems = () => {
     const sidebarData: ISidebarItem[] = [
         {
             name: "Dashboard",
-            icon: <DashboardIcon />,
+            icon: <Image 
+                src={`${IMAGE_DIR}/dashboardIcon.svg`} 
+                alt="dashboard" 
+                width={40}
+                height={40}
+            />,
             route: "/",
             active: isItemActive([""]),
+        },
+        {
+            name: "Transactions",
+            icon: <Image 
+                src={`${IMAGE_DIR}/transactionsIcon.svg`} 
+                alt="transaction" 
+                width={40}
+                height={40}
+            />,
+            route: "/",
+            active: isItemActive(["transaction"]),
+        },
+        {
+            name: "Outlets",
+            icon: <Image 
+                src={`${IMAGE_DIR}/outletsIcon.svg`} 
+                alt="outlets" 
+                width={40}
+                height={40}
+            />,            
+            route: "/",
+            active: isItemActive(["outlets"]),
+        },
+        {
+            name: "Settings",
+            icon: <Image 
+                src={`${IMAGE_DIR}/settingsIcon.svg`} 
+                alt="settings" 
+                width={40}
+                height={40}
+            />,            
+            route: "/",
+            active: isItemActive(["settings"]),
         },
     ];
 
@@ -71,19 +112,17 @@ const SidebarItem = ({ item, depth }: ISidebarItemProp) => {
         <div>
             <div
                 onClick={() => handleClick()}
-                style={{
-                    paddingLeft: paddingLeft,
-                }}
-                className={`relative mb-[5px]  flex w-full cursor-pointer items-center justify-between bg-[#F6F7FD26] py-4 pr-5 `}
+                style={{}}
+                className={`w-full h-[40px] cursor-pointer items-center justify-between mb-[24px]`}
             >
-                <div className="flex items-center gap-2">
+                <div className="flex gap-[12px] items-center">
                     {React.cloneElement(item.icon, {
                         basecolor: item.active ? "#fff" : undefined,
                         stroke: item.active ? "#fff" : undefined,
-                        className: `text-[#B1B1B1] ${item.active ? "text-white" : ""}`,
+                        className: `${item.active ? "text-white" : ""}`,
                     })}
 
-                    <p className={`text-sm font-medium transition-all duration-300 ease-in-out ${item.active ? "text-white" : "text-[#B1B1B1]"}`}>
+                    <p className={`transition-all duration-300 ease-in-out ${item.active ? "bg-primary-gradient bg-clip-text text-transparent text-heading-6" : "text-gray-60 text-heading-7"}`}>
                         {item.name}
                     </p>
                 </div>

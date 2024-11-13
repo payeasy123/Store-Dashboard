@@ -1,6 +1,7 @@
 "use client";
 
 import { useAppSelector } from "@/hooks";
+import { IMAGE_DIR } from "@/utils";
 import Image from "next/image";
 import SidebarItems from "./sidebarItems";
 
@@ -14,28 +15,19 @@ export const Sidebar = () => {
             }`}
             aria-label="Sidebar"
         >
-            <div className="bg-secondary relative flex min-h-0 flex-1 flex-col">
-                <div className={`h-full overflow-y-scroll pt-[120px]  text-white ${sidebarOpened ? "block" : "hidden"}`}>
-                    <div>
-                        <div className="mx-auto flex items-center gap-4 pl-8">
-                            <Image
-                                src="https://t4.ftcdn.net/jpg/04/02/62/41/360_F_402624137_Yc0kTeIm7mJn9YA67pwIOsiDeAb5D2tb.jpg"
-                                alt="profile pic"
-                                width={60}
-                                height={60}
-                                className="rounded-md"
-                            />
-
-                            <div>
-                                <h2 className="flex items-center font-semibold text-white">Admin</h2>
-
-                                <p className="text-sm text-[#BDBDBD]">Super Admin</p>
-                            </div>
+            <div className="relative flex min-h-0 flex-1 flex-col">
+                <div className={`h-full w-[277px] border-r border-gray-custom-gray text-white ${sidebarOpened ? "block" : "hidden"}`}>
+                    <div className="flex flex-col gap-[80px] mt-[60px] ml-[47px] w-[184px] h-[346px]">
+                        <Image
+                            src={`${IMAGE_DIR}/dashboard-logo.svg`}
+                            alt="Payeasy Logo"
+                            width={142.86}
+                            height={34}
+                            className=""
+                        />
+                        <div className="h-[232px] w-full">
+                            <SidebarItems />
                         </div>
-
-                        <h2 className="mb-4 ml-8 mt-8 text-sm font-medium">Main Menu</h2>
-
-                        <SidebarItems />
                     </div>
                 </div>
             </div>
