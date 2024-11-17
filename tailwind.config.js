@@ -20,10 +20,16 @@ module.exports = {
                 "heading-5": ["1.125rem", { lineHeight: "1.35rem", fontWeight: 500 }], // 18px -> 1.125rem, 21.6px -> 1.35rem
                 "heading-6": ["1.5rem", { lineHeight: "1.8rem", fontWeight: 700 }], // 24px -> 1.5rem, 28.8px -> 1.8rem
                 "heading-7": ["1.5rem", { lineHeight: "1.8rem", fontWeight: 400 }], // 24px -> 1.5rem, 28.8px -> 1.8rem
+                "heading-8": ["1.125rem", { lineHeight: "1.4rem", fontWeight: 600 }], // 18px -> 1.125rem, 22.41px -> 1.4rem
+                "heading-9": ["2rem", { lineHeight: "2.4rem", fontWeight: 700 }], // 32px -> 2rem, 38.4px -> 2.4rem
                 "body-1": ["1rem", { lineHeight: "1.2rem", fontWeight: 400 }], // 16px -> 1rem, 19.2px -> 1.2rem
                 "body-2": ["0.875rem", { lineHeight: "1.05rem", fontWeight: 400 }], // 14px -> 0.875rem, 16.8px -> 1.05rem
                 "body-3": ["0.75rem", { lineHeight: "0.9rem", fontWeight: 400 }], // 12px -> 0.75rem, 14.4px -> 0.9rem
                 "body-4": ["0.625rem", { lineHeight: "0.75rem", fontWeight: 400 }], // 10px -> 0.625rem, 12px -> 0.75rem
+                "body-5": ["0.75rem", { lineHeight: "0.9rem", fontWeight: 600 }], // 12px -> 0.75rem, 14.4px -> 0.9rem
+                "body-6": ["0.875rem", { lineHeight: "1.05rem", fontWeight: 700 }], // 14px -> 0.875rem, 16.8px -> 1.05rem
+                "body-7": ["0.875rem", { lineHeight: "1.05rem", fontWeight: 500 }], // 14px -> 0.875rem, 16.8px -> 1.05rem
+                "body-8": ["0.875rem", { lineHeight: "1.05rem", fontWeight: 600 }], // 14px -> 0.875rem, 16.8px -> 1.05rem
             },
             colors: {
                 primary: {
@@ -57,6 +63,7 @@ module.exports = {
                 },
                 gray: {
                     50: "#D7D7D7",
+                    30: "#EAEAEA",
                     'custom-gray': "#D6D6D6",
                     60: "#B2B2B2",
                     100: "#BDBDBD",

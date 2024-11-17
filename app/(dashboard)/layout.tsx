@@ -17,11 +17,11 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
         <div className="flex flex-row h-full min-h-screen bg-[#F1F1F1]">
             <Sidebar />
 
-            <div className="flex flex-col w-[1163px] md:ml-[17rem]">
+            <div className="flex flex-col w-full md:ml-[17.2rem]">
                 <Navbar />
 
                 {/* Main Content */}
-                <main id="main-content" className="flex w-full px-8 pt-[120px]">
+                <main id="main-content" className="flex w-full px-[50px] pt-[24px]">
                     {children}
                 </main>
             </div>
