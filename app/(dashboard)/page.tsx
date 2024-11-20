@@ -1,10 +1,15 @@
 "use client";
 
 import { Button } from "@/components/custom-ui";
+import DropdownButton from "@/components/custom-ui/dropdownbutton";
 import { IMAGE_DIR } from "@/utils";
 import Image from "next/image";
 
 const Home = () => {
+    const handleOptionSelect = (option: string) => {
+        console.log("Selected Option:", option)
+    }
+
     return (
         <div className="w-full">
             <div className="flex justify-between h-[48px] w-full items-center mb-[32px]">
@@ -31,7 +36,7 @@ const Home = () => {
             </div>
             <div className="flex flex-wrap gap-[19px] mb-[24px] h[208px]">
                 <div className="border bg-neutral-50 border-[#EAEAEA] w-full h-[208px] md:h-[208px] md:w-[calc(50%-9.5px)] rounded-[16px] p-[24px]">
-                    <div className="flex justify-between mb-[16px]">
+                    <div className="flex justify-between mb-[16px] flex-wrap items-center">
                         <div className="h-[40px] flex gap-[12px] items-center">
                             <Image
                                 src={`${IMAGE_DIR}/profileIcon.svg`}
@@ -42,9 +47,11 @@ const Home = () => {
                             />
                             <p className="text-heading-8 text-gray-500">Customer overview</p>
                         </div>
-                        <div className="rounded-[10px] h-[40px] w-[89px] px-[12px] border border-gray-30 flex gap-[4px] items-center">
-                            <p className="text-body-7 text-gray-200">Today</p>
-
+                        <div>
+                            <DropdownButton
+                                initialLabel="Today"
+                                options={["Today", "This Week", "This Month"]}
+                            />
                         </div>
                     </div>
                     
@@ -57,7 +64,7 @@ const Home = () => {
                     </div>
                 </div>
                 <div className="border bg-neutral-50 border-[#EAEAEA] w-full h-[208px] md:h-[208px] md:w-[calc(50%-9.5px)] rounded-[16px] p-[24px]">
-                    <div className="flex justify-between mb-[16px]">
+                    <div className="flex justify-between mb-[16px] flex-wrap items-center">
                         <div className="h-[40px] flex gap-[12px] items-center">
                             <Image
                                 src={`${IMAGE_DIR}/basketIcon.svg`}
@@ -68,10 +75,12 @@ const Home = () => {
                             />
                             <p className="text-heading-8 text-gray-500">Sales overview</p>
                         </div>  
-                        <div className="rounded-[10px] h-[40px] w-[89px] px-[12px] border border-gray-30 flex gap-[4px] items-center">
-                            <p className="text-body-7 text-gray-200">Today</p>
-
-                        </div> 
+                        <div>
+                            <DropdownButton
+                                initialLabel="Today"
+                                options={["Today", "This Week", "This Month"]}
+                            />
+                        </div>
                     </div>
 
                     <div className="flex flex-col gap-[8px]">
@@ -83,21 +92,26 @@ const Home = () => {
                     </div>         
                 </div>
             </div>
-            <div className="relative h-[544px] rounded-[16px] border bg-neutral-50 border-[#EAEAEA] p-[24px] mb-5">
-                <div className="absolute top-[24px] right-[24px] rounded-[10px] h-[40px] w-[89px] px-[12px] border border-gray-30 flex gap-[4px] items-center">
-                    <p className="text-body-7 text-gray-200">Custom</p>
-
+            <div className="h-[544px] rounded-[16px] border bg-neutral-50 border-[#EAEAEA] p-[24px] mb-5">
+                <div className="flex justify-between mb-[16px] flex-wrap items-center">
+                    <div className="h-[40px] flex gap-[12px] items-center">
+                        <Image
+                            src={`${IMAGE_DIR}/cardIcon.svg`}
+                            alt="Card Icon"
+                            width={40}
+                            height={40}
+                            className=""
+                        />
+                        <p className="text-heading-8 text-gray-500">Revenue Generated</p>
+                    </div>
+                    <div>
+                        <DropdownButton
+                            initialLabel="Custom"
+                            options={[""]}
+                        />
+                    </div>
                 </div>
-                <div className="h-[40px] flex gap-[12px] items-center mb-[16px]">
-                    <Image
-                        src={`${IMAGE_DIR}/cardIcon.svg`}
-                        alt="Card Icon"
-                        width={40}
-                        height={40}
-                        className=""
-                    />
-                    <p className="text-heading-8 text-gray-500">Revenue Generated</p>
-                </div>
+                
                 <p className="text-gray-950 text-body-9">#50,000</p>
             </div>
         </div>
