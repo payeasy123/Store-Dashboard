@@ -24,11 +24,15 @@ interface ISidebarItemProp {
 const SidebarItems = () => {
     const pathname = usePathname();
 
-    const isItemActive = (routes: string[], index: number = 1) => {
+    {/*const isItemActive = (routes: string[], index: number = 1) => {
         const currentPath = pathname.split("/")[index];
 
         return routes.includes(currentPath);
-    };
+    };*/}
+    const isItemActive = (routes: string[]) => {
+        const currentPath = pathname; // Get the current path
+        return routes.some((route) => currentPath === route); // Match exact paths only
+    };      
 
     const sidebarData: ISidebarItem[] = [
         {
@@ -40,18 +44,18 @@ const SidebarItems = () => {
                 height={40}
             />,
             route: "/",
-            active: isItemActive([""]),
+            active: isItemActive(["/"]),
         },
         {
             name: "Transactions",
             icon: <Image 
                 src={`${IMAGE_DIR}/transactionsIcon.svg`} 
-                alt="transaction" 
+                alt="transactions" 
                 width={40}
                 height={40}
             />,
-            route: "/",
-            active: isItemActive(["transaction"]),
+            route: "/transactions",
+            active: isItemActive(["/transactions"]),
         },
         {
             name: "Outlets",
@@ -61,8 +65,8 @@ const SidebarItems = () => {
                 width={40}
                 height={40}
             />,            
-            route: "/",
-            active: isItemActive(["outlets"]),
+            route: "/outlets",
+            active: isItemActive(["/outlets"]),
         },
         {
             name: "Settings",
@@ -72,8 +76,8 @@ const SidebarItems = () => {
                 width={40}
                 height={40}
             />,            
-            route: "/",
-            active: isItemActive(["settings"]),
+            route: "/settings",
+            active: isItemActive(["/settings"]),
         },
     ];
 
@@ -116,11 +120,19 @@ const SidebarItem = ({ item, depth }: ISidebarItemProp) => {
                 className={`w-full h-[40px] cursor-pointer items-center justify-between mb-[24px]`}
             >
                 <div className="flex gap-[12px] items-center">
-                    {React.cloneElement(item.icon, {
-                        basecolor: item.active ? "#fff" : undefined,
+                    {/*{React.cloneElement(item.icon, {
+                        basecolor: item.active ? "#fff" : "",
                         stroke: item.active ? "#fff" : undefined,
                         className: `${item.active ? "text-white" : ""}`,
-                    })}
+                    })}*/}
+                    <Image
+                        src={item.icon.props.src}
+                        alt={item.icon.props.alt}
+                        width={40}
+                        height={40}
+                        className={`${item.active ? "" : "text-gray-60"}`}
+                    />
+
 
                     <p className={`transition-all duration-300 ease-in-out ${item.active ? "bg-primary-gradient bg-clip-text text-transparent text-heading-6" : "text-gray-60 text-heading-7"}`}>
                         {item.name}

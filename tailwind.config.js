@@ -35,7 +35,7 @@ module.exports = {
                 primary: {
                     50: "#e5d5f2",
                     100: "#d3b9ea",
-                    200: "#bd96df",
+                    200: "#bd95df",
                     300: "#a772d4",
                     400: "#914fca",
                     500: "#7B2CBF",
@@ -87,6 +87,7 @@ module.exports = {
             animation: {
                 "fade-in": "fade-in 0.3s ease-in-out",
             },
+            
         },
     },
     plugins: [],
