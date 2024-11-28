@@ -47,7 +47,7 @@ const SidebarItems = () => {
             name: "Transactions",
             icon: <LineUp />,
             route: "/transactions",
-            active: isItemActive(["/transactions"]),
+            active: isItemActive(["/transactions/"]),
         },
         {
             name: "Outlets",
@@ -98,19 +98,13 @@ const SidebarItem = ({ item, depth }: ISidebarItemProp) => {
         <div>
             <div onClick={() => handleClick()} style={{}} className={`mb-[24px] h-[40px] w-full cursor-pointer items-center justify-between`}>
                 <div className="flex items-center gap-[12px]">
-                    {/*{React.cloneElement(item.icon, {
-                        basecolor: item.active ? "#fff" : "",
-                        stroke: item.active ? "#fff" : undefined,
-                        className: `${item.active ? "text-white" : ""}`,
-                    })}*/}
-                    {/* <Image
-                        src={item.icon.props.src}
-                        alt={item.icon.props.alt}
-                        width={40}
-                        height={40}
-                        className={`${item.active ? "" : "text-gray-60"}`}
-                    /> */}
-                    <div className="flex h-[40px] w-[40px] items-center justify-center rounded-full bg-primary-gradient">{item.icon}</div>
+                    <div
+                        className={`flex h-[40px] w-[40px] items-center justify-center rounded-full ${item.active ? "bg-primary-gradient" : "bg-[#EAEAEA]"}`}
+                    >
+                        {React.cloneElement(item.icon as React.ReactElement, {
+                            baseColor: item.active ? "#F7F7F7" : "#B2B2B2", // Pass dynamic color based on active state
+                        })}
+                    </div>
                     <p
                         className={`transition-all duration-300 ease-in-out ${item.active ? "bg-primary-gradient bg-clip-text text-heading-6 text-transparent" : "text-heading-7 text-gray-60"}`}
                     >
