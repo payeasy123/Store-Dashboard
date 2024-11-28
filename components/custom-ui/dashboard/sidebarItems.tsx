@@ -1,16 +1,16 @@
 "use client";
 import { useAppActions, useAppSelector } from "@/hooks";
 import { usePathname, useRouter } from "next/navigation";
-import { DashboardIcon } from "public/icons";
+import { DashboardIcon, LineUp } from "public/icons";
 import React, { useState } from "react";
 import { SlArrowRight } from "react-icons/sl";
 import { IMAGE_DIR } from "@/utils";
 import Image from "next/image";
 
-
 interface ISidebarItem {
     name: string;
-    icon: JSX.Element;
+    // icon: JSX.Element;
+    icon: React.ReactNode;
     route: string;
     active: boolean;
     subItems?: ISidebarItem[];
@@ -24,58 +24,40 @@ interface ISidebarItemProp {
 const SidebarItems = () => {
     const pathname = usePathname();
 
-    {/*const isItemActive = (routes: string[], index: number = 1) => {
+    {
+        /*const isItemActive = (routes: string[], index: number = 1) => {
         const currentPath = pathname.split("/")[index];
 
         return routes.includes(currentPath);
-    };*/}
+    };*/
+    }
     const isItemActive = (routes: string[]) => {
         const currentPath = pathname; // Get the current path
         return routes.some((route) => currentPath === route); // Match exact paths only
-    };      
+    };
 
     const sidebarData: ISidebarItem[] = [
         {
             name: "Dashboard",
-            icon: <Image 
-                src={`${IMAGE_DIR}/dashboardIcon.svg`} 
-                alt="dashboard" 
-                width={40}
-                height={40}
-            />,
+            icon: <LineUp />,
             route: "/",
             active: isItemActive(["/"]),
         },
         {
             name: "Transactions",
-            icon: <Image 
-                src={`${IMAGE_DIR}/transactionsIcon.svg`} 
-                alt="transactions" 
-                width={40}
-                height={40}
-            />,
+            icon: <LineUp />,
             route: "/transactions",
             active: isItemActive(["/transactions"]),
         },
         {
             name: "Outlets",
-            icon: <Image 
-                src={`${IMAGE_DIR}/outletsIcon.svg`} 
-                alt="outlets" 
-                width={40}
-                height={40}
-            />,            
+            icon: <LineUp />,
             route: "/outlets",
             active: isItemActive(["/outlets"]),
         },
         {
             name: "Settings",
-            icon: <Image 
-                src={`${IMAGE_DIR}/settingsIcon.svg`} 
-                alt="settings" 
-                width={40}
-                height={40}
-            />,            
+            icon: <LineUp />,
             route: "/settings",
             active: isItemActive(["/settings"]),
         },
@@ -114,27 +96,24 @@ const SidebarItem = ({ item, depth }: ISidebarItemProp) => {
 
     return (
         <div>
-            <div
-                onClick={() => handleClick()}
-                style={{}}
-                className={`w-full h-[40px] cursor-pointer items-center justify-between mb-[24px]`}
-            >
-                <div className="flex gap-[12px] items-center">
+            <div onClick={() => handleClick()} style={{}} className={`mb-[24px] h-[40px] w-full cursor-pointer items-center justify-between`}>
+                <div className="flex items-center gap-[12px]">
                     {/*{React.cloneElement(item.icon, {
                         basecolor: item.active ? "#fff" : "",
                         stroke: item.active ? "#fff" : undefined,
                         className: `${item.active ? "text-white" : ""}`,
                     })}*/}
-                    <Image
+                    {/* <Image
                         src={item.icon.props.src}
                         alt={item.icon.props.alt}
                         width={40}
                         height={40}
                         className={`${item.active ? "" : "text-gray-60"}`}
-                    />
-
-
-                    <p className={`transition-all duration-300 ease-in-out ${item.active ? "bg-primary-gradient bg-clip-text text-transparent text-heading-6" : "text-gray-60 text-heading-7"}`}>
+                    /> */}
+                    <div className="flex h-[40px] w-[40px] items-center justify-center rounded-full bg-primary-gradient">{item.icon}</div>
+                    <p
+                        className={`transition-all duration-300 ease-in-out ${item.active ? "bg-primary-gradient bg-clip-text text-heading-6 text-transparent" : "text-heading-7 text-gray-60"}`}
+                    >
                         {item.name}
                     </p>
                 </div>
