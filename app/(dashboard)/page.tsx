@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/custom-ui";
 import DropdownButton from "@/components/custom-ui/dropdownbutton";
+import { Money, Revenue, Shopping_cart, User, Vector} from "public/icons";
 import { IMAGE_DIR } from "@/utils";
 import Image from "next/image";
 
@@ -21,14 +22,8 @@ const Home = () => {
                         className="w-[249px] h-[48px] flex items-center gap-[8px]"
                         label={
                             <>
-                                <Image
-                                    src={`${IMAGE_DIR}/buttonIcon.svg`}
-                                    alt="Button Icon"
-                                    width={22}
-                                    height={22}
-                                    className=""
-                                />
-                                Generate Sales Report
+                                <Vector />
+                                <p className="text-heading-8 text-neutral-50">Generate Sales Report</p>
                             </>
                         }
                     />
@@ -38,13 +33,9 @@ const Home = () => {
                 <div className="border bg-neutral-50 border-[#EAEAEA] w-full h-[208px] md:h-[208px] md:w-[calc(50%-9.5px)] rounded-[16px] p-[24px]">
                     <div className="flex justify-between mb-[16px] flex-wrap items-center">
                         <div className="h-[40px] flex gap-[12px] items-center">
-                            <Image
-                                src={`${IMAGE_DIR}/profileIcon.svg`}
-                                alt="Profile Icon"
-                                width={40}
-                                height={40}
-                                className=""
-                            />
+                            <div className="flex items-center justify-center h-[40px] w-[40px] rounded-[41.67px] bg-[#CCE4F0]">
+                                <User />
+                            </div>
                             <p className="text-heading-8 text-gray-500">Customer overview</p>
                         </div>
                         <div>
@@ -66,13 +57,9 @@ const Home = () => {
                 <div className="border bg-neutral-50 border-[#EAEAEA] w-full h-[208px] md:h-[208px] md:w-[calc(50%-9.5px)] rounded-[16px] p-[24px]">
                     <div className="flex justify-between mb-[16px] flex-wrap items-center">
                         <div className="h-[40px] flex gap-[12px] items-center">
-                            <Image
-                                src={`${IMAGE_DIR}/basketIcon.svg`}
-                                alt="Basket Icon"
-                                width={40}
-                                height={40}
-                                className=""
-                            />
+                            <div className="flex items-center justify-center h-[40px] w-[40px] rounded-[41.67px] bg-[#E5D5F2]">
+                                <Shopping_cart />
+                            </div>
                             <p className="text-heading-8 text-gray-500">Sales overview</p>
                         </div>  
                         <div>
@@ -95,13 +82,9 @@ const Home = () => {
             <div className="h-[544px] rounded-[16px] border bg-neutral-50 border-[#EAEAEA] p-[24px] mb-5">
                 <div className="flex justify-between mb-[16px] flex-wrap items-center">
                     <div className="h-[40px] flex gap-[12px] items-center">
-                        <Image
-                            src={`${IMAGE_DIR}/cardIcon.svg`}
-                            alt="Card Icon"
-                            width={40}
-                            height={40}
-                            className=""
-                        />
+                        <div className="flex items-center justify-center h-[40px] w-[40px] rounded-[41.67px] bg-[#CCFDDD]">
+                            <Revenue />
+                        </div>
                         <p className="text-heading-8 text-gray-500">Revenue Generated</p>
                     </div>
                     <div>

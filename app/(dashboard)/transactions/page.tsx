@@ -4,6 +4,7 @@ import React from "react";
 import { Button } from "@/components/custom-ui";
 import { IMAGE_DIR } from "@/utils";
 import Image from "next/image";
+import { Receipt } from "@/public/icons";
 
 const Transaction = () => {
     return (
@@ -37,13 +38,7 @@ const Transaction = () => {
                             <button
                                 className="w-[117px] h-[28px] flex items-center gap-[4px] p-[12px] bg-primary-200 rounded-[80px]"
                             >
-                                <Image
-                                    src={`${IMAGE_DIR}/viewreceiptIcon.svg`}
-                                    alt="Button Icon"
-                                    width={16}
-                                    height={16}
-                                    className=""
-                                />
+                                <Receipt />
                                 <p className="text-body-5 text-neutral-50">View receipt</p>
                             </button>
                             
@@ -58,13 +53,7 @@ const Transaction = () => {
                             <button
                                 className="w-[117px] h-[28px] flex items-center gap-[4px] p-[12px] bg-primary-200 rounded-[80px]"
                             >
-                                <Image
-                                    src={`${IMAGE_DIR}/viewreceiptIcon.svg`}
-                                    alt="Button Icon"
-                                    width={16}
-                                    height={16}
-                                    className=""
-                                />
+                                <Receipt />
                                 <p className="text-body-5 text-neutral-50">View receipt</p>
                             </button>
                             
@@ -79,13 +68,7 @@ const Transaction = () => {
                             <button
                                 className="w-[117px] h-[28px] flex items-center gap-[4px] p-[12px] bg-primary-200 rounded-[80px]"
                             >
-                                <Image
-                                    src={`${IMAGE_DIR}/viewreceiptIcon.svg`}
-                                    alt="Button Icon"
-                                    width={16}
-                                    height={16}
-                                    className=""
-                                />
+                                <Receipt />
                                 <p className="text-body-5 text-neutral-50">View receipt</p>
                             </button>  
                             </td>

@@ -1,7 +1,7 @@
 "use client";
 import { useAppActions, useAppSelector } from "@/hooks";
 import { usePathname, useRouter } from "next/navigation";
-import { DashboardIcon, LineUp } from "public/icons";
+import { DashboardIcon, LineUp, Money, Shop, Setting_line} from "public/icons";
 import React, { useState } from "react";
 import { SlArrowRight } from "react-icons/sl";
 import { IMAGE_DIR } from "@/utils";
@@ -45,19 +45,19 @@ const SidebarItems = () => {
         },
         {
             name: "Transactions",
-            icon: <LineUp />,
+            icon: <Money />,
             route: "/transactions",
             active: isItemActive(["/transactions/"]),
         },
         {
             name: "Outlets",
-            icon: <LineUp />,
+            icon: <Shop />,
             route: "/outlets",
             active: isItemActive(["/outlets"]),
         },
         {
             name: "Settings",
-            icon: <LineUp />,
+            icon: <Setting_line />,
             route: "/settings",
             active: isItemActive(["/settings"]),
         },
