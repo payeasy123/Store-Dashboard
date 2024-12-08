@@ -1,13 +1,16 @@
 "use client";
 import { useAppActions, useAppSelector } from "@/hooks";
 import { usePathname, useRouter } from "next/navigation";
-import { DashboardIcon } from "public/icons";
+import { DashboardIcon, LineUp } from "public/icons";
 import React, { useState } from "react";
 import { SlArrowRight } from "react-icons/sl";
+import { IMAGE_DIR } from "@/utils";
+import Image from "next/image";
 
 interface ISidebarItem {
     name: string;
-    icon: JSX.Element;
+    // icon: JSX.Element;
+    icon: React.ReactNode;
     route: string;
     active: boolean;
     subItems?: ISidebarItem[];
@@ -21,18 +24,42 @@ interface ISidebarItemProp {
 const SidebarItems = () => {
     const pathname = usePathname();
 
-    const isItemActive = (routes: string[], index: number = 1) => {
+    {
+        /*const isItemActive = (routes: string[], index: number = 1) => {
         const currentPath = pathname.split("/")[index];
 
         return routes.includes(currentPath);
+    };*/
+    }
+    const isItemActive = (routes: string[]) => {
+        const currentPath = pathname; // Get the current path
+        return routes.some((route) => currentPath === route); // Match exact paths only
     };
 
     const sidebarData: ISidebarItem[] = [
         {
             name: "Dashboard",
-            icon: <DashboardIcon />,
+            icon: <LineUp />,
             route: "/",
-            active: isItemActive([""]),
+            active: isItemActive(["/"]),
+        },
+        {
+            name: "Transactions",
+            icon: <LineUp />,
+            route: "/transactions",
+            active: isItemActive(["/transactions/"]),
+        },
+        {
+            name: "Outlets",
+            icon: <LineUp />,
+            route: "/outlets",
+            active: isItemActive(["/outlets"]),
+        },
+        {
+            name: "Settings",
+            icon: <LineUp />,
+            route: "/settings",
+            active: isItemActive(["/settings"]),
         },
     ];
 
@@ -69,21 +96,18 @@ const SidebarItem = ({ item, depth }: ISidebarItemProp) => {
 
     return (
         <div>
-            <div
-                onClick={() => handleClick()}
-                style={{
-                    paddingLeft: paddingLeft,
-                }}
-                className={`relative mb-[5px]  flex w-full cursor-pointer items-center justify-between bg-[#F6F7FD26] py-4 pr-5 `}
-            >
-                <div className="flex items-center gap-2">
-                    {React.cloneElement(item.icon, {
-                        basecolor: item.active ? "#fff" : undefined,
-                        stroke: item.active ? "#fff" : undefined,
-                        className: `text-[#B1B1B1] ${item.active ? "text-white" : ""}`,
-                    })}
-
-                    <p className={`text-sm font-medium transition-all duration-300 ease-in-out ${item.active ? "text-white" : "text-[#B1B1B1]"}`}>
+            <div onClick={() => handleClick()} style={{}} className={`mb-[24px] h-[40px] w-full cursor-pointer items-center justify-between`}>
+                <div className="flex items-center gap-[12px]">
+                    <div
+                        className={`flex h-[40px] w-[40px] items-center justify-center rounded-full ${item.active ? "bg-primary-gradient" : "bg-[#EAEAEA]"}`}
+                    >
+                        {React.cloneElement(item.icon as React.ReactElement, {
+                            baseColor: item.active ? "#F7F7F7" : "#B2B2B2", // Pass dynamic color based on active state
+                        })}
+                    </div>
+                    <p
+                        className={`transition-all duration-300 ease-in-out ${item.active ? "bg-primary-gradient bg-clip-text text-heading-6 text-transparent" : "text-heading-7 text-gray-60"}`}
+                    >
                         {item.name}
                     </p>
                 </div>
