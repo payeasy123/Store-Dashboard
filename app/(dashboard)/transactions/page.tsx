@@ -1,10 +1,9 @@
 "use client";
 
 import React from "react";
-import { Button } from "@/components/custom-ui";
-import { IMAGE_DIR } from "@/utils";
-import Image from "next/image";
-import { Receipt } from "@/public/icons";
+import { ReceiptButton } from "@/components/custom-ui";
+import Link from "next/link";
+
 
 const Transaction = () => {
     return (
@@ -35,13 +34,17 @@ const Transaction = () => {
                             <td className="p-[9px_31px]">01/02/30</td>
                             <td className="p-[9px_31px]">12:34:16</td>
                             <td className="p-[9px_31px]">
-                            <button
+                                <Link href="/receipt">
+                                    <ReceiptButton 
+                                        label="View receipt" 
+                                    />
+                                </Link>
+                            {/* <button
                                 className="w-[117px] h-[28px] flex items-center gap-[4px] p-[12px] bg-primary-200 rounded-[80px]"
                             >
                                 <Receipt />
                                 <p className="text-body-5 text-neutral-50">View receipt</p>
-                            </button>
-                            
+                            </button> */}
                             </td>
                         </tr>
                         <tr className="text-gray-950 text-body-8 font-semibold border-b-[2px] border-gray-30">
@@ -50,13 +53,11 @@ const Transaction = () => {
                             <td className="p-[9px_31px]">01/02/30</td>
                             <td className="p-[9px_31px]">12:34:16</td>
                             <td className="p-[9px_31px]">
-                            <button
-                                className="w-[117px] h-[28px] flex items-center gap-[4px] p-[12px] bg-primary-200 rounded-[80px]"
-                            >
-                                <Receipt />
-                                <p className="text-body-5 text-neutral-50">View receipt</p>
-                            </button>
-                            
+                                <Link href="/receipt">
+                                    <ReceiptButton 
+                                        label="View receipt" 
+                                    />
+                                </Link>
                             </td>
                         </tr>
                         <tr className="text-gray-950 text-body-8 font-semibold border-b-[2px] border-gray-30">
@@ -65,12 +66,11 @@ const Transaction = () => {
                             <td className="p-[9px_31px]">01/02/30</td>
                             <td className="p-[9px_31px]">12:34:16</td>
                             <td className="p-[9px_31px]">
-                            <button
-                                className="w-[117px] h-[28px] flex items-center gap-[4px] p-[12px] bg-primary-200 rounded-[80px]"
-                            >
-                                <Receipt />
-                                <p className="text-body-5 text-neutral-50">View receipt</p>
-                            </button>  
+                                <Link href="/receipt">
+                                    <ReceiptButton 
+                                        label="View receipt" 
+                                    />
+                                </Link>
                             </td>
                         </tr>
                     </tbody>

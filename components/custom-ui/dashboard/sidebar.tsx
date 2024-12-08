@@ -27,7 +27,7 @@ export const Sidebar = () => {
                         <MdClose />
                     </button>
                     <div className={`h-full w-[277px] text-white ${sidebarOpened ? "block" : "hidden"}`}>
-                        <div className="flex flex-col gap-[80px] mt-[60px] ml-[47px] w-[184px] h-[346px]">
+                        <div className="flex flex-col gap-[80px] mt-[60px] ml-[47px] w[184px] h-[346px]">
                             <Image
                                 src={`${IMAGE_DIR}/dashboard-logo.svg`}
                                 alt="Payeasy Logo"

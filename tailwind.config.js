@@ -30,6 +30,7 @@ module.exports = {
                 "body-6": ["0.875rem", { lineHeight: "1.05rem", fontWeight: 700 }], // 14px -> 0.875rem, 16.8px -> 1.05rem
                 "body-7": ["0.875rem", { lineHeight: "1.05rem", fontWeight: 500 }], // 14px -> 0.875rem, 16.8px -> 1.05rem
                 "body-8": ["0.875rem", { lineHeight: "1.05rem", fontWeight: 600 }], // 14px -> 0.875rem, 16.8px -> 1.05rem
+                "body-9": ["0.75rem", { lineHeight: "0.9rem", fontWeight: 500 }], // 12px -> 0.75rem, 14.4px -> 0.9rem
             },
             colors: {
                 primary: {
@@ -69,6 +70,7 @@ module.exports = {
                     100: "#BDBDBD",
                     200: "#9C9C9C",
                     300: "#7B7B7B",
+                    350: "#707070",
                     400: "#5A5A5A",
                     500: "#393939",
                     600: "#303030",
