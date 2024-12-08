@@ -6,6 +6,9 @@ import { useRouter } from "next/navigation";
 import { MdClose } from "react-icons/md";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { Button } from "../button";
+import Image from "next/image";
+import { IMAGE_DIR } from "@/utils";
+
 
 export const Navbar = () => {
     const { toggleSidebar } = useAppActions();
@@ -21,15 +24,22 @@ export const Navbar = () => {
     };
 
     return (
-        <nav className="fixed z-[5] flex h-[80px] w-full items-center justify-center border-b border-[#CACACA] bg-[#F6F7FD]">
-            <div className="mx-auto flex w-[95%] items-center justify-between ">
+        <nav className="flex h-[88px] px-[50px] items-center border-b border-gray-custom-gray">
+            <div className="flex w-full items-center justify-between">
                 <button className="md:hidden" onClick={() => toggleSidebar()}>
                     {sidebarOpened ? <MdClose className="cursor-pointer text-2xl" /> : <RxHamburgerMenu className="cursor-pointer text-2xl" />}
                 </button>
 
-                <span>Logo</span>
-
-                <Button onClick={() => handleLogout()} variant="outlined" label="Logout" className="border-2 !py-2" spanClassName="text-sm" />
+                <span className="h-[40px] w[100px] flex items-center gap-[12px]">
+                    <Image 
+                        src={`${IMAGE_DIR}/sparlogo.svg`}
+                        alt="mall logo"
+                        width={40}
+                        height={40}
+                        className="">
+                    </Image>
+                    <p className="text-heading-4 h-[29px] w[48px] text-gray-500">Logo</p>
+                </span>
             </div>
         </nav>
     );

@@ -14,14 +14,14 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
     useScreenSize();
 
     return (
-        <div className="h-full min-h-screen bg-[#F6F7FD]">
-            <Navbar />
+        <div className="flex flex-row h-full min-h-screen bg-[#F1F1F1]">
+            <Sidebar />
 
-            <div className="flex overflow-scroll ">
-                <Sidebar />
+            <div className="flex flex-col w-full md:ml-[17.2rem]">
+                <Navbar />
 
                 {/* Main Content */}
-                <main id="main-content" className="relative !z-0 w-full px-8 pt-[120px] md:ml-[17rem] ">
+                <main id="main-content" className="flex w-full px-[50px] pt-[24px]">
                     {children}
                 </main>
             </div>

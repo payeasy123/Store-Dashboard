@@ -1,44 +1,49 @@
 "use client";
 
-import { useAppSelector } from "@/hooks";
+import { useAppActions, useAppSelector } from "@/hooks";
+import { IMAGE_DIR } from "@/utils";
 import Image from "next/image";
 import SidebarItems from "./sidebarItems";
+import { MdClose } from "react-icons/md";
+
 
 export const Sidebar = () => {
     const { sidebarOpened } = useAppSelector((state) => state.appSlice);
+    const { toggleSidebar } = useAppActions();
 
     return (
-        <aside
-            className={`transition-width fixed left-0 top-0 z-[3] flex h-full flex-shrink-0 flex-col duration-300 lg:flex ${
-                sidebarOpened ? "w-screen md:w-[17rem]" : "w-0"
-            }`}
-            aria-label="Sidebar"
-        >
-            <div className="bg-secondary relative flex min-h-0 flex-1 flex-col">
-                <div className={`h-full overflow-y-scroll pt-[120px]  text-white ${sidebarOpened ? "block" : "hidden"}`}>
-                    <div>
-                        <div className="mx-auto flex items-center gap-4 pl-8">
+        <>
+            <aside
+                className={`transition-transform duration-300 fixed left-0 top-0 z-[3] flex h-full flex-shrink-0 flex-col border-r border-gray-custom-gray bg-[#F1F1F1] lg:flex ${
+                    sidebarOpened ? "translate-x-0 w-[277px] md:w-[17rem]" : "-translate-x-full w-0"
+                }`}
+                aria-label="Sidebar"
+            >
+                <div className="relative flex min-h-0 flex-1 flex-col">
+                    <button
+                        onClick={() => toggleSidebar()}
+                        className="absolute top-4 right-4 text-2xl text-gray-600 md:hidden"
+                    >
+                        <MdClose />
+                    </button>
+                    <div className={`h-full w-[277px] text-white ${sidebarOpened ? "block" : "hidden"}`}>
+                        <div className="flex flex-col gap-[80px] mt-[60px] ml-[47px] w[184px] h-[346px]">
                             <Image
-                                src="https://t4.ftcdn.net/jpg/04/02/62/41/360_F_402624137_Yc0kTeIm7mJn9YA67pwIOsiDeAb5D2tb.jpg"
-                                alt="profile pic"
-                                width={60}
-                                height={60}
-                                className="rounded-md"
+                                src={`${IMAGE_DIR}/dashboard-logo.svg`}
+                                alt="Payeasy Logo"
+                                width={142.86}
+                                height={34}
+                                className=""
                             />
-
-                            <div>
-                                <h2 className="flex items-center font-semibold text-white">Admin</h2>
-
-                                <p className="text-sm text-[#BDBDBD]">Super Admin</p>
+                            <div className="h-[232px] w-full">
+                                <SidebarItems />
                             </div>
                         </div>
-
-                        <h2 className="mb-4 ml-8 mt-8 text-sm font-medium">Main Menu</h2>
-
-                        <SidebarItems />
                     </div>
                 </div>
-            </div>
-        </aside>
+            </aside>
+
+        </>
+        
     );
 };
